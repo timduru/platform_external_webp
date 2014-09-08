@@ -21,18 +21,23 @@ LOCAL_SRC_FILES := \
         frame.c \
         idec.c \
         io.c \
-        layer.c \
         quant.c \
         tree.c \
         vp8.c \
         vp8l.c \
         webp.c \
+        ../dsp/alpha_processing.c \
         ../dsp/cpu.c \
         ../dsp/cpu-features.c \
         ../dsp/dec.c \
+        ../dsp/dec_mips32.c \
+        ../dsp/dec_clip_tables.c \
         ../dsp/dec_neon.c \
         ../dsp/dec_sse2.c \
         ../dsp/lossless.c \
+        ../dsp/lossless_mips32.c \
+        ../dsp/lossless_neon.c \
+        ../dsp/lossless_sse2.c \
         ../dsp/upsampling.c \
         ../dsp/upsampling_neon.c \
         ../dsp/upsampling_sse2.c \
@@ -44,6 +49,7 @@ LOCAL_SRC_FILES := \
         ../utils/huffman.c \
         ../utils/quant_levels_dec.c \
         ../utils/rescaler.c \
+        ../utils/random.c \
         ../utils/thread.c \
         ../utils/utils.c
 
@@ -51,7 +57,8 @@ LOCAL_CFLAGS := -DANDROID -DWEBP_SWAP_16BIT_CSP
 
 LOCAL_C_INCLUDES += \
         $(LOCAL_PATH) \
-        $(LOCAL_PATH)/../../include
+        $(LOCAL_PATH)/../../include \
+        $(LOCAL_PATH)/../dsp
 
 LOCAL_MODULE:= libwebp-decode
 
